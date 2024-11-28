@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const itemsRoutes = require('./routes/items');
 const app = express();
 
+require('./db');
+
 app.use(bodyParser.json());
 app.use('/api/items', itemsRoutes);
 
