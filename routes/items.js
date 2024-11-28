@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const itemsController = require('../controllers/itemsController');
 
-// Define your routes here
-router.get('/', (req, res) => {
-    res.send('Items route working!');
-});
+router.get('/', itemsController.getAllItems);
+router.post('/', itemsController.createItem);
+router.put('/:id', itemsController.updateItem);
+router.patch('/:id', itemsController.patchItem);
+router.delete('/:id', itemsController.deleteItem);
 
 module.exports = router;
