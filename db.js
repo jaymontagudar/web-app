@@ -26,6 +26,12 @@ db.run(createTableSQL, (err) => {
     console.error('Error creating table:', err.message);
   } else {
     console.log('Table "items" is ready');
+
+    // Insert sample data into the table
+    const stmt = db.prepare('INSERT INTO items (name, description) VALUES (?, ?)');
+    stmt.run('Item 1', 'Description for item 1');
+    stmt.run('Item 2', 'Description for item 2');
+    stmt.finalize();
   }
 });
 
